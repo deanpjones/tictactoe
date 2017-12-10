@@ -1,0 +1,248 @@
+/* IMPORT FONTS (GOOGLE) */
+@import url(//fonts.googleapis.com/css?family=Open+Sans|Indie+Flower|Muli);   /* import inside style */
+/* EXAMPLE USAGE */
+/*<p class="open_sans sm">*/
+/*<p class="muli md">*/
+/*<p class="indie lg">*/
+
+body {
+    font-size: 30px;
+    font-family: sans-serif;
+}
+/* FONT SIZE */
+.sm{
+    font-size: 12px;
+}
+.md {
+    font-size: 20px;
+}
+.lg {
+    font-size: 30px;
+}
+/* FONT STYLE */
+.open_sans {
+    font-family: 'Open Sans';
+}
+.muli {
+    font-family: 'Muli';
+}
+.indie {
+    font-family: 'Indie Flower', cursive;
+}
+.consolas {
+    font-family: 'Consolas';
+}
+.pro {
+    font-family: 'Anonymous Pro';
+}
+
+/* CLOSE BUTTON */
+/* @import url("base.css"); */
+.button--close {
+    background-color: rgb(254, 254, 254);
+    box-shadow: outset 25 25 0 25px rgb(117, 117, 117);
+    /*box-shadow: inset 0 0 0 25px #0cbe24;*/
+}
+svg:hover #id1  {
+    opacity: 1.0;
+}
+
+/* MESSAGES */
+.alert__format {
+    margin: 25px;
+    padding: 10px;
+    width: 90%;
+    height: 20%;
+
+    font-family: sans-serif, 'Consolas'; 
+    font-size: 1.5em;
+    font-weight: 800;
+
+    text-align: center;
+    /* line-height:298px; */
+    
+}
+.alert--success {
+    background-color: #9effad;
+    border: 6px solid #4bec64;
+    border-radius: 25px;
+    color: #00b21b;
+    box-shadow: 10px 10px 6px 0px #bdb8b8;
+    stroke: #bdb8b8;
+}
+.alert--info {
+    background-color: #9edbff;
+    border: 6px solid #52a5ff;
+    border-radius: 25px;
+    color: #0c75b2;
+    box-shadow: 10px 10px 6px 0px #bdb8b8;
+}
+.alert--warning {
+    background-color: #fff69e;
+    border: 6px solid #e6d84d;
+    border-radius: 25px;
+    color: #b2a311;
+    box-shadow: 10px 10px 6px 0px #bdb8b8;
+}
+.alert--danger {
+    background-color: #ffa09e;
+    border: 6px solid #ff5552;
+    border-radius: 25px;
+    color: #b20d09;
+    box-shadow: 10px 10px 6px 0px #bdb8b8;
+}
+
+/* SVG */
+/* SELECTORS  https://www.w3schools.com/cssref/css_selectors.asp */
+/* SVG REFERENCE https://developer.mozilla.org/en-US/docs/Web/SVG/Element */
+
+svg {
+    width: "400"; 
+    height: "400";
+    /*background-color: rgb(190, 190, 190);*/
+    /* float: right; */
+}
+
+/* .shadow1 {
+    box-shadow: outset 25 25 0 25px rgb(117, 117, 117);
+}
+.shadow2 {
+    -webkit-filter: drop-shadow( -25px -25px 25px #808080 ); 
+    filter: drop-shadow( -25px -25px 25px #808080 );
+} */
+
+.centerAll {
+    /* https://stackoverflow.com/questions/356809/best-way-to-center-a-div-on-a-page-vertically-and-horizontally    */
+    /* toggle off (top, bottom, left, right) to adjust ALIGNMENT accordingly */
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+    /* TODO, make new css class that will center for text in a div? relative center? */
+}
+
+.centerRelative { /* ??? play later with fixed on blank html... ??? */
+    /* https://stackoverflow.com/questions/356809/best-way-to-center-a-div-on-a-page-vertically-and-horizontally    */
+    /* toggle off (top, bottom, left, right) to adjust ALIGNMENT accordingly */
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+    /* TODO, make new css class that will center for text in a div? relative center? */
+}
+
+.centerW {
+    /* https://stackoverflow.com/questions/356809/best-way-to-center-a-div-on-a-page-vertically-and-horizontally    */
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+svg text {
+    font-family: "Verdana";
+    font-size: "20";
+}
+
+svg circle {
+    stroke: "black"; 
+    fill: "red"; 
+    stroke-width: "3"; 
+}
+
+svg polyline {
+    stroke: "black"; 
+    fill: "gray"; 
+    stroke-width: "3"; 
+}
+
+/* EFFECTS */ 
+body > div
+{  
+    margin:121px 149px;
+    
+    width:483px;
+    height:298px;
+    
+    background:#676470;
+    color:#fff;
+    
+    font-family:Lato;
+    font-weight:900;
+    font-size:3.4em;
+    
+    text-align:center;
+    /* line-height:298px; */
+    
+    /* transition:all 0.3s ease; */
+}
+
+*   /* select all elements */
+{    
+    transition:all 0.3s ease-in-out;    /* need (transition) here otherwise animation is jerky */ 
+}
+
+/* EFFECTS */
+.fade
+{
+    opacity:1.0;
+}
+.fade:hover
+{
+    opacity:0.5;
+}
+
+.rotate30:hover
+{
+    -webkit-transform: rotateZ(-30deg); /* Safari 3.1, Chrome, Opera 12 */
+    -ms-transform: rotateZ(-30deg);     /* IE 9-9 */
+    transform: rotateZ(-30deg);         /* Edge, Firefox 16, Safari 9, Chrome 36, IE 10, Opera 12.1 */
+}
+
+.shrink:hover
+{
+    -webkit-transform: scale(0.8);      /* Safari 3.1, Chrome, Opera 12 */
+    -ms-transform: scale(0.8);          /* IE 9-9 */
+    transform: scale(0.8);              /* Edge, Firefox 16, Safari 9, Chrome 36, IE 10, Opera 12.1 */
+}
+
+.grow:hover
+{
+    -webkit-transform: scale(1.3);     /* Safari 3.1, Chrome, Opera 12 */
+    -ms-transform: scale(1.3);         /* IE 9-9 */
+    transform: scale(1.3);             /* Edge, Firefox 16, Safari 9, Chrome 36, IE 10, Opera 12.1 */
+}
+
+.fillGreen:hover
+{
+    box-shadow: inset 0 0 0 25px #0cbe24;
+}
+
+.fillRed:hover
+{
+    box-shadow: inset 0 0 0 25px #be0c0c;
+}
+
+.fillYellow:hover
+{
+    box-shadow: inset 0 0 0 25px #bbbe0c;
+}
+
+.fillBlue:hover
+{
+    box-shadow: inset 0 0 0 25px #0c44be;
+}
+
+/* BUTTON  */
+button:hover {
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+}
+
+.draggable {
+    cursor: move;   /* changes cursor to four arrows (that's it) */
+}
+    

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>tictactoe</title>
+    <!-- LOADING SCRIPTS  -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <!-- LOAD GAME JS -->
+    <script type="text/javascript" src="js/game.js"></script>
+
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+    <style>
+        .message{
+            position: absolute;
+            top: auto;
+            height: auto;
+            visibility: hidden;
+        }
+
+        /* text highlighting blue on doubleclick */ 
+        svg text {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            pointer-events: none;
+        }
+    
+    </style>
+</head>
+
+<body>
+    <h1>tic-tac-toe</h1>
+    <div id="msg" class="wobble message alert--success">
+            you win!
+    </div>
+    <svg id="tictactoe" width="400" height="400" class="centerAll">
+        <defs>
+            <filter id="blurFilter" y="-5" height="40">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" y="2"></feGaussianBlur>
+            </filter>
+        </defs>
+        <g fill="#ff9326" stroke="black" stroke-width="5">
+            <g id="c0" class="fade" onclick="pick(this)">
+                <rect id="shadow0" fill="#808080" stroke="#808080" opacity="0.75" filter="url(#blurFilter)" x="65" y="65" width="100"
+                    height="100"></rect>
+                <rect id="rect0" x="50" y="50" width="100" height="100"></rect>
+                <text id="txt0" text-anchor="middle" alignment-baseline="middle" x="100" y="100" font-family="sans-serif"
+                    font-size="40"></text>
+            </g>
+            <g id="c1" class="fade" onclick="pick(this)">
+                <rect id="shadow1" fill="#808080" stroke="#808080" opacity="0.75" filter="url(#blurFilter)" x="165" y="65" width="100"
+                    height="100"></rect>
+                <rect id="rect1" x="150" y="50" width="100" height="100"></rect>
+                <text id="txt1" text-anchor="middle" alignment-baseline="middle" x="200" y="100" font-family="sans-serif"
+                    font-size="40"></text>
+            </g>
+            <g id="c2" class="fade" onclick="pick(this)">
+                <rect id="shadow2" fill="#808080" stroke="#808080" opacity="0.75" filter="url(#blurFilter)" x="265" y="65" width="100"
+                    height="100"></rect>
+                <rect id="rect2" x="250" y="50" width="100" height="100"></rect>
+                <text id="txt2" text-anchor="middle" alignment-baseline="middle" x="300" y="100" font-family="sans-serif"
+                    font-size="40"></text>
+            </g>
+            <g id="c3" class="fade" onclick="pick(this)">
+                <rect id="shadow3" fill="#808080" stroke="#808080" opacity="0.75" filter="url(#blurFilter)" x="65" y="165" width="100"
+                    height="100"></rect>
+                <rect id="rect3" x="50" y="150" width="100" height="100"></rect>
+                <text id="txt3" text-anchor="middle" alignment-baseline="middle" x="100" y="200" font-family="sans-serif"
+                    font-size="40"></text>
+            </g>
+            <g id="c4" class="fade" onclick="pick(this)">
+                <rect id="shadow4" fill="#808080" stroke="#808080" opacity="0.75" filter="url(#blurFilter)" x="165" y="165" width="100"
+                    height="100"></rect>
+                <rect id="rect4" x="150" y="150" width="100" height="100"></rect>
+                <text id="txt4" text-anchor="middle" alignment-baseline="middle" x="200" y="200" font-family="sans-serif"
+                    font-size="40"></text>
+            </g>
+            <g id="c5" class="fade" onclick="pick(this)">
+                <rect id="shadow5" fill="#808080" stroke="#808080" opacity="0.75" filter="url(#blurFilter)" x="265" y="165" width="100"
+                    height="100"></rect>
+                <rect id="rect5" x="250" y="150" width="100" height="100"></rect>
+                <text id="txt5" text-anchor="middle" alignment-baseline="middle" x="300" y="200" font-family="sans-serif"
+                    font-size="40"></text>
+            </g>
+            <g id="c6" class="fade" onclick="pick(this)">
+                <rect id="shadow6" fill="#808080" stroke="#808080" opacity="0.75" filter="url(#blurFilter)" x="65" y="265" width="100"
+                    height="100"></rect>
+                <rect id="rect6" x="50" y="250" width="100" height="100"></rect>
+                <text id="txt6" text-anchor="middle" alignment-baseline="middle" x="100" y="300" font-family="sans-serif"
+                    font-size="40"></text>
+            </g>
+            <g id="c7" class="fade" onclick="pick(this)">
+                <rect id="shadow7" fill="#808080" stroke="#808080" opacity="0.75" filter="url(#blurFilter)" x="165" y="265" width="100"
+                    height="100"></rect>
+                <rect id="rect7" x="150" y="250" width="100" height="100"></rect>
+                <text id="txt7" text-anchor="middle" alignment-baseline="middle" x="200" y="300" font-family="sans-serif"
+                    font-size="40"></text>
+            </g>
+            <g id="c8" class="fade" onclick="pick(this)">
+                <rect id="shadow8" fill="#808080" stroke="#808080" opacity="0.75" filter="url(#blurFilter)" x="265" y="265" width="100"
+                    height="100"></rect>
+                <rect id="rect8" x="250" y="250" width="100" height="100"></rect>
+                <text id="txt8" text-anchor="middle" alignment-baseline="middle" x="300" y="300" font-family="sans-serif"
+                    font-size="40"></text>
+            </g>
+        </g>    
+    </svg>
+    
+    <script>
+        // var playerPick = "X";
+        // var gameover = false;
+        // var winner = false;
+        // var grid = [];
+
+        // //--------------------------------------------------
+        // //--------------------------------------------------
+        // //GAME LOOP
+        // function pick(button){
+        //     var id = button.id;                     //get current id (button picked)
+        //     var p = document.getElementById(id);
+        //     //console.log(p.__proto__);
+        //     var currentPick = p.lastElementChild.innerHTML;
+            
+        //     //--------------
+        //     //check if blank
+        //     if(!gameover){                  //see if game is done
+        //         if(currentPick != ""){      //test for picked already
+        //             console.log("this square has been picked already")
+        //         }
+        //         //fill in with player('x' or 'o') square
+        //         else{
+        //             p.lastElementChild.innerHTML = playerPick;
+
+        //             if(playerPick == "X"){
+        //                 playerPick = "O";
+        //                 checkGame();
+        //             }
+        //             else{
+        //                 playerPick = "X";
+        //                 checkGame();
+        //             }
+        //         }
+        //     }
+        //     //--------------
+            
+        // }
+        // //--------------------------------------------------
+        // //--------------------------------------------------
+
+        //     //check win
+        //     function checkGame(){
+        //         updateGrid();
+        //         checkGridForWin('X');
+        //         checkGridForWin('O');
+        //         checkForDraw();
+        //     }
+
+        //     //check function
+        //     function checkWin(_X, a, b, c){
+        //         if(grid[a] == _X && grid[b] == _X && grid[c] == _X){
+                    
+        //             //highlight (3-in-a-row)
+        //             updateViewWin(a, b, c); 
+
+        //             gameover = true;   
+        //             return gameover;
+        //         }
+        //     }
+
+        //     //update view for draw
+        //     function updateViewDraw(){               
+        //         for(var i = 0; i < 9; i++){
+        //             var temp = document.getElementById("c" + i);
+        //             //set to win (green - success)
+        //             var winColor = '#8080ff';
+        //             temp.setAttribute('fill', winColor);
+        //         }
+        //     }
+
+        //     //update view for win
+        //     function updateViewWin(a, b, c){
+        //         //get grid elements
+        //         var a1 = document.getElementById("c" + a);
+        //         var b1 = document.getElementById("c" + b);
+        //         var c1 = document.getElementById("c" + c);
+        //         //set to win (green - success)
+        //         var winColor = '#80ff80';
+        //         a1.setAttribute('fill', winColor);
+        //         b1.setAttribute('fill', winColor);
+        //         c1.setAttribute('fill', winColor);
+
+        //     }
+
+        //     //test for win
+        //     function checkGridForWin(player){                
+        //         //check rows
+        //         if(
+        //         checkWin(player, 0, 1, 2) ||
+        //         checkWin(player, 3, 4, 5) ||
+        //         checkWin(player, 6, 7, 8) ||
+
+        //         //check columns
+        //         checkWin(player, 0, 3, 6) ||
+        //         checkWin(player, 1, 4, 7) ||
+        //         checkWin(player, 2, 5, 8) ||
+
+        //         //check diagonals
+        //         checkWin(player, 0, 4, 8) ||
+        //         checkWin(player, 2, 4, 6)
+                
+        //         ){
+        //             winner = true;
+        //             console.log(player + " wins...")
+        //         }                                       
+        //     }
+             
+        //     //update grid 
+        //     function updateGrid(){
+        //         grid = [
+        //         document.getElementById("txt0").innerHTML,
+        //         document.getElementById("txt1").innerHTML, 
+        //         document.getElementById("txt2").innerHTML,
+
+        //         document.getElementById("txt3").innerHTML,
+        //         document.getElementById("txt4").innerHTML, 
+        //         document.getElementById("txt5").innerHTML,
+
+        //         document.getElementById("txt6").innerHTML,
+        //         document.getElementById("txt7").innerHTML, 
+        //         document.getElementById("txt8").innerHTML
+        //         ];
+        //     }
+
+        //     //grid is full
+        //     function gridIsFull(){
+        //         return grid.indexOf("") == -1;
+        //     }
+
+        //     //check for draw
+        //     function checkForDraw(){          
+        //         if(gridIsFull() && !winner){
+
+        //             //update view for draw
+        //             updateViewDraw();
+
+        //             gameover = true;
+        //             console.log("it's a draw");
+        //         }
+        //     }
+        
+    </script>
+
+</body>
+
+</html>
