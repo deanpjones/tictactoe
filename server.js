@@ -1,7 +1,13 @@
 //https://stackoverflow.com/questions/16333790/node-js-quick-file-server-static-files-over-http
 //https://developer.mozilla.org/en-US/docs/Learn/Server-side/Node_server_without_framework
 
-var http = require('http');
+/* ***************************************** */
+// TIC TAC TOE (node.js server, to run game)
+// DEAN JONES 
+// DEC. 09, 2017
+/* ***************************************** */
+
+// var http = require('http');
 var fs = require('fs');
 var path = require('path');
 

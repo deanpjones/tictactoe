@@ -1,3 +1,11 @@
+
+/* ***************************************** */
+//TIC TAC TOE (main javascript, game logic)
+// DEAN JONES 
+// DEC. 09, 2017
+/* ***************************************** */
+
+//VARIABLES
 var playerPick = "X";
 var gameover = false;
 var winner = false;
