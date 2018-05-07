@@ -7,6 +7,7 @@
 // DEC. 09, 2017
 /* ***************************************** */
 
+
 var http = require('http');
 var fs = require('fs');
 var path = require('path');
@@ -70,3 +71,6 @@ http.createServer(function (request, response) {
 
 }).listen(8125);
 console.log('Server running at http://127.0.0.1:8125/');
+
+//to run on TERMINAL type (node server.js) in root directory (C:\Users\Pythagoras\Documents\000-Code\tictactoe>node server.js)
+//then open BROWSER and type in URL (http://127.0.0.1:8125/)
